@@ -3,7 +3,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import apiai
 
 updater = Updater("1244003572:AAEeygp2pIqS3M56jS0TeXkfawOQqor2gkA", use_context=True)
-dispatcher = updater.dispatcher
+dp = updater.dispatcher
 
 
 def startCommand(bot, update):
@@ -23,12 +23,7 @@ def textMessage(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text="Не понятно, что вы написали!")
 
 
-start_command_handler = CommandHandler("start", startCommand)
-text_message_handler = MessageHandler(Filters.text, textMessage)
-
-dispatcher.add_handler(start_command_handler)
-dispatcher.add_handler(text_message_handler)
-
+dp.add_handler(CommandHandler("start", startCommand))
+dp.add_handler(MessageHandler(Filters.text, textMessage))
 updater.start_polling()
-
 updater.idle()
