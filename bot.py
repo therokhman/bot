@@ -2,7 +2,7 @@ import json
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import apiai
 
-updater = Updater("1244003572:AAEeygp2pIqS3M56jS0TeXkfawOQqor2gkA", use_context=True)
+updater = Updater(token="1244003572:AAEeygp2pIqS3M56jS0TeXkfawOQqor2gkA", use_context=True)
 dp = updater.dispatcher
 
 
